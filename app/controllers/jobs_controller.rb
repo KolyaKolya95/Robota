@@ -10,6 +10,14 @@ class JobsController < ApplicationController
 		end
 	end
 
+	def search
+		if params[:search].present?
+			@jobs = Job.search(params[:search])
+		else
+			@jobs = Job.all
+		end
+	end
+
 	def show
 	end
 
